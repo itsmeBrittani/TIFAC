@@ -32,5 +32,16 @@ body {
 }
 
 #game-surface {
-  display: flex; 
+    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#playerhand, #house {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 90%;
+    height: 50%;
+    text-align: center;
 }
