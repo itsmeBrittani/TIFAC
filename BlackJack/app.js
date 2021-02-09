@@ -1,26 +1,24 @@
-/*
-[] - make the deck
-    -> give each card value
-    -> Ace can be 1 or 11
-[] - player starts
-    -> hit & stand
-[] - dealer goes
-    -> dealer must hit under 17
-[] - first to or closest to 21 wins
-[] - over 21 is BUST, game over, loser
-[] - make deck with factory? put in array of objects?
-
-*/
-
-
 $(() => {
 console.log("you got it dude!")
 
+let $suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
+let $value = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
+let $deck = [];
 
+for(i = 0; i <$value.length; i++){
+    for(w = 0; w < $suits.length; w++){
+        let $point = parseInt($value[i]);
+        if(($value[i]) == 'J' || $value[i] == 'Q' || $value[i] == 'K')
+        $point = 10;
+        if(($value[i]) == 'A')
+        $point = 11;
+    const $card = {Value: $value[i], Suit: $suits[w], Point: $point};
+    $deck.push($card);
+    }
+}
 
-
-
+console.log($deck)
 
 
 });
