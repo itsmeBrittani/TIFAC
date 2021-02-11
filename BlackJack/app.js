@@ -26,15 +26,15 @@ $dealBtn.on('click', () =>{
         let $api = $data;
         let $deckID = $api.deck_id;
         let $firstDeal = $data.cards;
-        for (var i = 0; i < firstDeal.length; i++){
-            if(firstDeal[i].value == "KING" || firstDeal[i].value == "QUEEN" || firstDeal[i].value == "JACK"){
-              firstDeal[i].value = 10;
+        for (var i = 0; i < $firstDeal.length; i++){
+            if($firstDeal[i].value == "KING" || $firstDeal[i].value == "QUEEN" || $firstDeal[i].value == "JACK"){
+              $firstDeal[i].value = 10;
             }
-            if(firstDeal[i].value == "ACE"){
-              firstDeal[i].value = 11;
+            if($firstDeal[i].value == "ACE"){
+              $firstDeal[i].value = 11;
             }
-            if(firstDeal[i].value != "KING" && firstDeal[i].value != "QUEEN" && firstDeal[i].value != "JACK" && firstDeal[i].value != "ACE"){
-              firstDeal[i].value = parseInt(firstDeal[i].value);
+            if($firstDeal[i].value != "KING" && $firstDeal[i].value != "QUEEN" && $firstDeal[i].value != "JACK" && $firstDeal[i].value != "ACE"){
+              $firstDeal[i].value = parseInt($firstDeal[i].value);
             }
             }
         console.log($firstDeal)
