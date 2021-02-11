@@ -1,25 +1,27 @@
 $(() => {
 console.log("you got it dude!")
 
-let $deck = $('<img class="card" id="deckcard">');
+let $deck = $('<img class="deckCard" id="deckcard">');
 $deck.attr('src', "https://i.ibb.co/VMD00H1/card-back-black.png");
 
 $('#deck').append($deck);
 
-let $playerHand = [];
-let $houseHand = [];
-
-let $playerTotal = [];
-let $houseTotal = [];
+let $playerHand = null;
+let $houseHand = null;
+let $playerTotal = null;
+let $houseTotal = null;
+let $deckID = null;
 
 // click event listener for Deal
 const $dealBtn = $('#deal')
-$dealBtn.on('click', () =>{
+$dealBtn.on('click', () => {
 //Setting values back to empty or zero 
-    let $playerHand = [];
-    let $houseHand = [];
-    let $playerTotal = [];
-    let $houseTotal = [];
+ $playerHand = [];
+ $houseHand = [];
+ $playerTotal = 0;
+ $houseTotal = 0;
+ $('div .card').remove();
+
 //Using API to make deck & draw 4 cards
     fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=4').then(function(response) {
         if (response.status != 200) {
@@ -28,7 +30,7 @@ $dealBtn.on('click', () =>{
       }
     response.json().then(function($data) {
         const $api = $data;
-        const $deckID = $api.deck_id;
+        $deckID = $api.deck_id;
 //Use data pulled from API to make house and player starting hands
         const $firstDeal = $data.cards;
 //loops through looking for cards values to change them to numbers
@@ -83,21 +85,56 @@ $dealBtn.on('click', () =>{
         $('#house').append($hCard1);
         $('#house').append($hCard2);
         console.log($houseHand[0][1].value);
-        console.log($houseTotal):
+        console.log($houseTotal);
     });
     });
-    console.log('Button has been clicked')
 });
     
 // click event for Hit Button
 const $hitBtn = $('#hitme')
-$hitBtn.on('click', () => {
-    console.log('Clicked')
+$hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deckID+'/draw/?count=1').then(function(response) {
+            if (response.status != 200) {
+              alert('Nope');
+            return;
+            }
+          response.json().then(function($data) {
+            console.log($data.cards[0].value);
+            const $nextCard = $data.cards;
+              if($nextCard[0].value == "KING" || $nextCard[0].value == "QUEEN" || $nextCard[0].value == "JACK"){
+                $nextCard[0].value = 10;
+              }
+              if($nextCard[0].value == "ACE"){
+                $nextCard[0].value = 1;
+              }
+              if($nextCard[0].value != "KING" && $nextCard[0].value != "QUEEN" && $nextCard[0].value != "JACK" && $nextCard[0].value != "ACE"){
+                $nextCard[0].value = parseInt($nextCard[0].value)};
+              $playerHand.push($nextCard);
+              let $lastCard = $playerHand[$playerHand.length-1][0].code;
+
+              let $card5 = "https://deckofcardsapi.com/static/img/"+$lastCard+".png";
+
+              const $pCard3 = $('<img id="pCard3">');
+              $pCard3.attr('src', $card5);
+              $pCard3.addClass('card');
+
+              let $lastVal = $playerHand[$playerHand.length-1][0].value;
+
+              $playerTotal += $lastVal;
+
+              $('#playerhand').append($pCard3);
+              console.log($playerTotal);
+          })
+})
+
+
 });
+
+
 // click event for Stand Button
 const $standBtn = $('#stand')
 $standBtn.on('click', () => {
     console.log('Clicked')
+
 });
 
 
