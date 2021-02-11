@@ -97,6 +97,7 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
               alert('Nope');
             return;
             }
+//pulled one card then replaced value with number and implemented an Ace Check without a function
           response.json().then(function($data) {
             console.log($data.cards[0].value);
             const $nextCard = $data.cards;
@@ -108,7 +109,9 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
               }
               if($nextCard[0].value != "KING" && $nextCard[0].value != "QUEEN" && $nextCard[0].value != "JACK" && $nextCard[0].value != "ACE"){
                 $nextCard[0].value = parseInt($nextCard[0].value)};
-              $playerHand.push($nextCard);
+//Put card into player's hand and gave an image
+              $playerHand.push
+              ($nextCard);
               let $lastCard = $playerHand[$playerHand.length-1][0].code;
 
               let $card5 = "https://deckofcardsapi.com/static/img/"+$lastCard+".png";
@@ -116,11 +119,11 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
               const $pCard3 = $('<img id="pCard3">');
               $pCard3.attr('src', $card5);
               $pCard3.addClass('card');
-
+//adding new value to player total score
               let $lastVal = $playerHand[$playerHand.length-1][0].value;
 
               $playerTotal += $lastVal;
-
+//appending card to div
               $('#playerhand').append($pCard3);
               console.log($playerTotal);
           })
@@ -138,19 +141,10 @@ $standBtn.on('click', () => {
 });
 
 
-// //checks if any Aces are in hand
-// const aceCheck = () =>{
-//     if ($playerTotal > 21 && $playerHand.contains($deck[48] || $deck[49] || $deck[50] || $deck[51])){
-//         $deck[48].point = 1;
-//         $deck[49].point = 1;
-//         $deck[50].point = 1;
-//         $deck[51].point = 1;
-//     } 
 //     bustCheck()
 // }
 
 // const bustCheck = () => {
-//     aceCheck()
 //     if($playerTotal > 21){
 //         alert("Player busted! House wins!");
 //         $playerTotal = 0;
