@@ -43,3 +43,13 @@ body {
     height: 50%;
     text-align: center;
 }
+
+.card {
+    max-width: 20%;
+    max-height: 35%;
+}
+
+#deckcard {
+    position: relative;
+    left: 40%;
+}
