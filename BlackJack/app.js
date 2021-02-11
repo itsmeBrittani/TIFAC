@@ -12,21 +12,25 @@ let $houseTotal = [];
 // click event listener for Deal
 const $dealBtn = $('#deal')
 $dealBtn.on('click', () =>{
+//Setting values back to empty or zero 
     let $deck = [];
     let $playerHand = [];
     let $houseHand = [];
-    let $playerTotal = [];
-    let $houseTotal = [];
+    let $playerTotal = 0;
+    let $houseTotal = 0;
+//Using API to make deck & draw 4 cards
     fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=4').then(function(response) {
         if (response.status != 200) {
             alert("Nope");
         return;
       }
     response.json().then(function($data) {
-        let $api = $data;
-        let $deckID = $api.deck_id;
-        let $firstDeal = $data.cards;
-        for (var i = 0; i < $firstDeal.length; i++){
+        const $api = $data;
+        const $deckID = $api.deck_id;
+//
+        const $firstDeal = $data.cards;
+//
+        for (i = 0; i < $firstDeal.length; i++){
             if($firstDeal[i].value == "KING" || $firstDeal[i].value == "QUEEN" || $firstDeal[i].value == "JACK"){
               $firstDeal[i].value = 10;
             }
@@ -37,7 +41,15 @@ $dealBtn.on('click', () =>{
               $firstDeal[i].value = parseInt($firstDeal[i].value);
             }
             }
-        console.log($firstDeal)
+        const $firstHand = $firstDeal;
+        console.log($firstHand);
+
+        let $playerStartCards = $firstHand.splice(0,2);
+        $playerHand.push($playerStartCards);
+        console.log($playerHand);
+        let $houseStartCards = $firstHand.splice(0,2);
+        $houseHand.push($houseStartCards);
+        console.log($houseHand);
     });
     });
     console.log('Button has been clicked')
