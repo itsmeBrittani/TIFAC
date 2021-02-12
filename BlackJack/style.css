@@ -46,16 +46,16 @@ body {
 }
 
 .card {
-    width: 75px;
-    height: 125px;
+    width: 100px;
+    height: 150px;
     max-width: 100px;
     max-height: 150px;
 }
 
 
 .deckCard, .hole {
-    width: 75px;
-    height: 125px;
+    width: 100px;
+    height: 150px;
     max-width: 100px;
     max-height: 150px;
     border-radius: 5px;
@@ -70,7 +70,8 @@ body {
     position: relative;
     right: 25%;
     transform: rotate(-90deg);
-    font-size: 22px; 
+    font-size: 22px;
+    font-family: cursive; 
 }
 
 #rules2 {
@@ -78,6 +79,10 @@ body {
     left: 25%;
     transform: rotate(90deg);
     font-size: 22px;
+    font-family: cursive;
     
 }
 
+h2 {
+    font-size: 20px;
+}
