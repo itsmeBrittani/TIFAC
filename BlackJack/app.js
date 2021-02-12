@@ -91,6 +91,9 @@ $dealBtn.on('click', () => {
         $hCard1.hide();
 
         $('#housescore').text("Score: " + $houseTotal).hide();
+        if ($playerTotal >= 21){
+          $($hitBtn).attr('disabled','disable');
+        }
     });
     });
 });
