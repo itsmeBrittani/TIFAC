@@ -30,7 +30,7 @@ $dealBtn.on('click', () => {
 //Using API to make deck & draw 4 cards
     fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=4').then(function(response) {
         if (response.status != 200) {
-            alert("Nope");
+            alert("Error. Please refresh or retry");
         return;
       }
     response.json().then(function($data) {
@@ -99,7 +99,7 @@ $dealBtn.on('click', () => {
 $hitBtn = $('#hitme')
 $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deckID+'/draw/?count=1').then(function(response) {
             if (response.status != 200) {
-              alert('Nope');
+              alert('Error. Please refresh or retry.');
             return;
             }
 //pulled one card then replaced value with number and implemented an Ace Check without a function
