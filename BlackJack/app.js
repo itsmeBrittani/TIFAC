@@ -11,6 +11,7 @@ let $houseHand = null;
 let $playerTotal = null;
 let $houseTotal = null;
 let $deckID = null;
+let $hCard1 = null;
 
 // click event listener for Deal
 const $dealBtn = $('#deal')
@@ -62,7 +63,6 @@ $dealBtn.on('click', () => {
         const $pCard2 = $('<img id="pCard2">');
         $pCard2.attr('src', $card2);
         $pCard2.addClass('card');
-        
         ($playerTotal) += ($playerHand[0][0].value) + ($playerHand[0][1].value)
         $('#playerhand').append($pCard1);
         $('#playerhand').append($pCard2);
@@ -70,17 +70,22 @@ $dealBtn.on('click', () => {
 //putting images to house cards
         let $card3 = "https://deckofcardsapi.com/static/img/" + ($houseHand[0][0].code) + ".png";
         let $card4 = "https://deckofcardsapi.com/static/img/" + ($houseHand[0][1].code) + ".png";
-        const $hCard1 = $('<img id="hCard1">');
+        $hCard1 = $('<img id="hCard1">');
         $hCard1.attr('src', $card3);
         $hCard1.addClass('card');
         const $hCard2 = $('<img id="hCard2">');
         $hCard2.attr('src', $card4);
         $hCard2.addClass('card');
-        
+
+        let $holeCard = $('<img class="hole" id="hole-card">');
+        $holeCard.attr('src', "https://i.ibb.co/VMD00H1/card-back-black.png");
+
         ($houseTotal) += ($houseHand[0][0].value) + ($houseHand[0][1].value)
+        $('#house').append($holeCard);
         $('#house').append($hCard1);
         $('#house').append($hCard2);
-        
+        $hCard1.hide();
+
         $('#housescore').text("Score: " + $houseTotal).hide();
     });
     });
@@ -131,6 +136,8 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
 // click event for Stand Button
 const $standBtn = $('#stand')
 $standBtn.on('click', () => {
+    $('.hole').hide();
+    $hCard1.show();
     $('#housescore').show();
     console.log('Clicked')
 
