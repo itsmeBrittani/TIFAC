@@ -13,8 +13,9 @@ let $houseTotal = null;
 let $deckID = null;
 let $hCard1 = null;
 let $hitBtn = null;
+let $stdBtn = null;
 
-// click event listener for Deal
+//click event listener for Deal
 const $dealBtn = $('#deal')
 $dealBtn.on('click', () => {
 //Setting values back to empty or zero 
@@ -22,9 +23,10 @@ $dealBtn.on('click', () => {
  $houseHand = [];
  $playerTotal = 0;
  $houseTotal = 0;
+ $('.hole').hide();
  $('div .card').remove();
  $($hitBtn).removeAttr('disabled');
-
+ $($standBtn).removeAttr('disabled');
 //Using API to make deck & draw 4 cards
     fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=4').then(function(response) {
         if (response.status != 200) {
@@ -103,48 +105,107 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
 //pulled one card then replaced value with number and implemented an Ace Check without a function
           response.json().then(function($data) {
             const $nextCard = $data.cards;
-              if($nextCard[0].value == "KING" || $nextCard[0].value == "QUEEN" || $nextCard[0].value == "JACK"){
+            if($nextCard[0].value == "KING" || $nextCard[0].value == "QUEEN" || $nextCard[0].value == "JACK"){
                 $nextCard[0].value = 10;
               }
-              if($nextCard[0].value == "ACE"){
+            if($nextCard[0].value == "ACE"){
                 $nextCard[0].value = 1;
               }
-              if($nextCard[0].value != "KING" && $nextCard[0].value != "QUEEN" && $nextCard[0].value != "JACK" && $nextCard[0].value != "ACE"){
+            if($nextCard[0].value != "KING" && $nextCard[0].value != "QUEEN" && $nextCard[0].value != "JACK" && $nextCard[0].value != "ACE"){
                 $nextCard[0].value = parseInt($nextCard[0].value)};
 //Put card into player's hand and gave an image
-              $playerHand.push
-              ($nextCard);
-              let $lastCard = $playerHand[$playerHand.length-1][0].code;
+            $playerHand.push
+            ($nextCard);
+            let $lastCard = $playerHand[$playerHand.length-1][0].code;
 
-              let $card5 = "https://deckofcardsapi.com/static/img/"+$lastCard+".png";
+            let $card5 = "https://deckofcardsapi.com/static/img/"+$lastCard+".png";
 
-              const $pCard3 = $('<img id="pCard3">');
-              $pCard3.attr('src', $card5);
-              $pCard3.addClass('card');
+            const $pCard3 = $('<img id="pCard3">');
+            $pCard3.attr('src', $card5);
+            $pCard3.addClass('card');
 //adding new value to player total score
-              let $lastVal = $playerHand[$playerHand.length-1][0].value;
+            let $lastVal = $playerHand[$playerHand.length-1][0].value;
 
-              $playerTotal += $lastVal;
+            $playerTotal += $lastVal;
 //appending card to div
-              $('#playerhand').append($pCard3);
-              $('#playerscore').text( "Score: " + $playerTotal);
+            $('#playerhand').append($pCard3);
+//appending score to board
+            $('#playerscore').text( "Score: " + $playerTotal);
+            if ($playerTotal >= 21){
+              $($hitBtn).attr('disabled','disable');
+            if($playerTotal > 21){
+              alert('You busted at ' + $playerTotal+ '. HOUSE WINS!!!')
+              $($standBtn).attr('disabled','disable');
+            }
+            }
           })
 })
 
 
 });
 
+const compareScores = () => {
+  if ($houseTotal > 21) {
+  $('.hole').hide();
+  $hCard1.show();
+  alert('Dealer busted at '+$houseTotal+'PLAYER WINS!!');
+}else if($houseTotal == $playerTotal){
+  $('.hole').hide();
+$hCard1.show();
+  alert('Dealer and Player push.');
+}else if($houseTotal > $playerTotal &&$houseTotal < 22){
+  $('.hole').hide();
+$hCard1.show();
+  alert('Dealer Wins!!!');
+}else if($playerTotal > $houseTotal && $playerTotal < 22){
+  $('.hole').hide();
+  $hCard1.show();
+  alert('Player Wins!!');
+}else alert('Something went wrong');  
+}
 
 // click event for Stand Button
-const $standBtn = $('#stand')
+$standBtn = $('#stand')
 $standBtn.on('click', () => {
     $($hitBtn).attr('disabled','disable');
     $('.hole').hide();
     $hCard1.show();
     $('#housescore').show();
-    console.log('Clicked')
+    while($houseTotal <= 16){
+      fetch('https://deckofcardsapi.com/api/deck/'+$deckID+'/draw/?count=1').then(function(response) {
+            if (response.status != 200) {
+              alert('Nope');
+            return;
+            }response.json().then(function($data) {
+              const $nextCard = $data.cards;
+              if($nextCard[0].value == "KING" || $nextCard[0].value == "QUEEN" || $nextCard[0].value == "JACK"){
+                  $nextCard[0].value = 10;
+                }
+              if($nextCard[0].value == "ACE"){
+                  $nextCard[0].value = 1;
+                }
+              if($nextCard[0].value != "KING" && $nextCard[0].value != "QUEEN" && $nextCard[0].value != "JACK" && $nextCard[0].value != "ACE"){
+                  $nextCard[0].value = parseInt($nextCard[0].value)};
+              $houseHand.push
+            ($nextCard);
+            let $lastCard = $houseHand[$houseHand.length-1][0].code;
+            let $card6 = "https://deckofcardsapi.com/static/img/"+$lastCard+".png";
 
+            const $hCard3 = $('<img id="hCard3">');
+            $hCard3.attr('src', $card6);
+            $hCard3.addClass('card');
+            let $lastVal = $houseHand[$houseHand.length-1][0].value;
+
+            $houseTotal += $lastVal;
+            $('#house').append($hCard3);
+            $('#housescore').text( "Score: " + $houseTotal);
+            })
+          });
+      }
+      compareScores();
 });
+
+
 
 
 //     bustCheck()
@@ -167,10 +228,5 @@ $standBtn.on('click', () => {
 // }
 
 
-
-
-
 });
-
-
 
