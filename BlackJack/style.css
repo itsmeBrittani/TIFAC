@@ -66,3 +66,18 @@ body {
     left: 0.5%;
 }
 
+#rules {
+    position: relative;
+    right: 25%;
+    transform: rotate(-90deg);
+    font-size: 22px; 
+}
+
+#rules2 {
+    position: relative;
+    left: 25%;
+    transform: rotate(90deg);
+    font-size: 22px;
+    
+}
+

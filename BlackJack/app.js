@@ -13,7 +13,7 @@ let $houseTotal = null;
 let $deckID = null;
 let $hCard1 = null;
 let $hitBtn = null;
-let $stdBtn = null;
+let $standBtn = null;
 
 //click event listener for Deal
 const $dealBtn = $('#deal')
