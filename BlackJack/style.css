@@ -71,7 +71,8 @@ body {
     right: 25%;
     transform: rotate(-90deg);
     font-size: 22px;
-    font-family: cursive; 
+    font-family: cursive;
+    color: white; 
 }
 
 #rules2 {
@@ -80,6 +81,7 @@ body {
     transform: rotate(90deg);
     font-size: 22px;
     font-family: cursive;
+    color: white;
     
 }
 
