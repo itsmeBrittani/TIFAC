@@ -26,7 +26,7 @@ Play it here: https://itsmebrittani.github.io/BlackJack/
 <img width="796" alt="Screen Shot 2021-02-12 at 8 15 46 AM" src="https://user-images.githubusercontent.com/77257222/107781021-06bd3e00-6d0d-11eb-8df6-2f6dcea0d411.png">
 
 
-### House/Dealer turn is automated and winner is announced
+### House/Dealer turn is automated and winner is announced - Click Deal to play again!
 
 <img width="778" alt="Screen Shot 2021-02-12 at 8 16 17 AM" src="https://user-images.githubusercontent.com/77257222/107781065-19d00e00-6d0d-11eb-866a-4a29e222c132.png">
 

@@ -205,28 +205,5 @@ $standBtn.on('click', () => {
       compareScores();
 });
 
-
-
-
-//     bustCheck()
-// }
-
-// const bustCheck = () => {
-//     if($playerTotal > 21){
-//         alert("Player busted! House wins!");
-//         $playerTotal = 0;
-//         $houseTotal = 0;
-//         $playerHand = [];
-//         $houseHand = [];
-//     }else if($houseTotal > 21){
-//         alert("House busted! Player wins!")
-//         $playerTotal = 0;
-//         $houseTotal = 0;
-//         $playerHand = [];
-//         $houseHand = [];
-//     }
-// }
-
-
 });
 
