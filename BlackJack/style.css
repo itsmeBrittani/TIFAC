@@ -50,10 +50,6 @@ body {
     max-height: 20%;
 }
 
-.card-back {
-    background-color: rgba(0,0,0,1);
-}
-
 
 .deckCard, .hole {
     max-width: 100px;

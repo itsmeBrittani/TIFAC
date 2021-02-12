@@ -12,6 +12,7 @@ let $playerTotal = null;
 let $houseTotal = null;
 let $deckID = null;
 let $hCard1 = null;
+let $hitBtn = null;
 
 // click event listener for Deal
 const $dealBtn = $('#deal')
@@ -22,6 +23,7 @@ $dealBtn.on('click', () => {
  $playerTotal = 0;
  $houseTotal = 0;
  $('div .card').remove();
+ $($hitBtn).removeAttr('disabled');
 
 //Using API to make deck & draw 4 cards
     fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=4').then(function(response) {
@@ -92,7 +94,7 @@ $dealBtn.on('click', () => {
 });
     
 // click event for Hit Button
-const $hitBtn = $('#hitme')
+$hitBtn = $('#hitme')
 $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deckID+'/draw/?count=1').then(function(response) {
             if (response.status != 200) {
               alert('Nope');
@@ -136,6 +138,7 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
 // click event for Stand Button
 const $standBtn = $('#stand')
 $standBtn.on('click', () => {
+    $($hitBtn).attr('disabled','disable');
     $('.hole').hide();
     $hCard1.show();
     $('#housescore').show();
