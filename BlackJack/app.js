@@ -47,7 +47,6 @@ $dealBtn.on('click', () => {
             }
 //putting first cards in variable
         const $firstHand = $firstDeal;
-        console.log($firstHand);
 //putting first 2 cards into player hand
         let $playerStartCards = $firstHand.splice(0,2);
         $playerHand.push($playerStartCards);
@@ -82,7 +81,7 @@ $dealBtn.on('click', () => {
         $('#house').append($hCard1);
         $('#house').append($hCard2);
         
-        $('#housescore').text("Score: " + $houseTotal);
+        $('#housescore').text("Score: " + $houseTotal).hide();
     });
     });
 });
@@ -96,7 +95,6 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
             }
 //pulled one card then replaced value with number and implemented an Ace Check without a function
           response.json().then(function($data) {
-            console.log($data.cards[0].value);
             const $nextCard = $data.cards;
               if($nextCard[0].value == "KING" || $nextCard[0].value == "QUEEN" || $nextCard[0].value == "JACK"){
                 $nextCard[0].value = 10;
@@ -133,6 +131,7 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
 // click event for Stand Button
 const $standBtn = $('#stand')
 $standBtn.on('click', () => {
+    $('#housescore').show();
     console.log('Clicked')
 
 });
