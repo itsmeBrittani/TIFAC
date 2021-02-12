@@ -174,7 +174,7 @@ $standBtn.on('click', () => {
     while($houseTotal <= 16){
       fetch('https://deckofcardsapi.com/api/deck/'+$deckID+'/draw/?count=1').then(function(response) {
             if (response.status != 200) {
-              alert('Nope');
+              alert('Error. Please refresh or retry.');
             return;
             }response.json().then(function($data) {
               const $nextCard = $data.cards;
