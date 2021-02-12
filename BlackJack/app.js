@@ -51,11 +51,9 @@ $dealBtn.on('click', () => {
 //putting first 2 cards into player hand
         let $playerStartCards = $firstHand.splice(0,2);
         $playerHand.push($playerStartCards);
-        console.log($playerHand);
 //putting next 2 cards into house hand
         let $houseStartCards = $firstHand.splice(0,2);
         $houseHand.push($houseStartCards);
-        console.log($houseHand);
 //putting images to player cards
         let $card1 = "https://deckofcardsapi.com/static/img/" + ($playerHand[0][0].code) + ".png";
         let $card2 = "https://deckofcardsapi.com/static/img/" + ($playerHand[0][1].code) + ".png";
@@ -69,8 +67,7 @@ $dealBtn.on('click', () => {
         ($playerTotal) += ($playerHand[0][0].value) + ($playerHand[0][1].value)
         $('#playerhand').append($pCard1);
         $('#playerhand').append($pCard2);
-        console.log($playerHand[0][1].value);
-        console.log($playerTotal);
+        $('#playerscore').text("Score: " + $playerTotal);
 //putting images to house cards
         let $card3 = "https://deckofcardsapi.com/static/img/" + ($houseHand[0][0].code) + ".png";
         let $card4 = "https://deckofcardsapi.com/static/img/" + ($houseHand[0][1].code) + ".png";
@@ -84,8 +81,8 @@ $dealBtn.on('click', () => {
         ($houseTotal) += ($houseHand[0][0].value) + ($houseHand[0][1].value)
         $('#house').append($hCard1);
         $('#house').append($hCard2);
-        console.log($houseHand[0][1].value);
-        console.log($houseTotal);
+        
+        $('#housescore').text("Score: " + $houseTotal);
     });
     });
 });
@@ -125,7 +122,7 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
               $playerTotal += $lastVal;
 //appending card to div
               $('#playerhand').append($pCard3);
-              console.log($playerTotal);
+              $('#playerscore').text( "Score: " + $playerTotal);
           })
 })
 
