@@ -174,7 +174,7 @@ $standBtn.on('click', () => {
     $('.hole').hide();
     $hCard1.show();
     $('#housescore').show();
-    while($houseTotal <= 16){
+    if($houseTotal <= 16){
       fetch('https://deckofcardsapi.com/api/deck/'+$deckID+'/draw/?count=1').then(function(response) {
             if (response.status != 200) {
               alert('Error. Please refresh or retry.');
