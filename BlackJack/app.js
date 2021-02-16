@@ -68,9 +68,9 @@ $dealBtn.on('click', () => {
         $pCard2.attr('src', $card2);
         $pCard2.addClass('card');
         ($playerTotal) += ($playerHand[0][0].value) + ($playerHand[0][1].value)
-        $('#playerhand').append($pCard1);
-        $('#playerhand').append($pCard2);
-        $('#playerscore').text("Score: " + $playerTotal);
+        $('#playerHand').append($pCard1);
+        $('#playerHand').append($pCard2);
+        $('#playerScore').text("Score: " + $playerTotal);
 //putting images to house cards
         let $card3 = "https://deckofcardsapi.com/static/img/" + ($houseHand[0][0].code) + ".png";
         let $card4 = "https://deckofcardsapi.com/static/img/" + ($houseHand[0][1].code) + ".png";
@@ -90,7 +90,7 @@ $dealBtn.on('click', () => {
         $('#house').append($hCard2);
         $hCard1.hide();
 
-        $('#housescore').text("Score: " + $houseTotal).hide();
+        $('#houseScore').text("Score: " + $houseTotal).hide();
         if ($playerTotal >= 21){
           $($hitBtn).attr('disabled','disable');
         }
@@ -131,9 +131,9 @@ $hitBtn.on('click', () => {   fetch('https://deckofcardsapi.com/api/deck/'+$deck
 
             $playerTotal += $lastVal;
 //appending card to div
-            $('#playerhand').append($pCard3);
+            $('#playerHand').append($pCard3);
 //appending score to board
-            $('#playerscore').text( "Score: " + $playerTotal);
+            $('#playerScore').text( "Score: " + $playerTotal);
             if ($playerTotal >= 21){
               $($hitBtn).attr('disabled','disable');
             if($playerTotal > 21){
@@ -156,14 +156,14 @@ const compareScores = () => {
   $('.hole').hide();
 $hCard1.show();
   alert('Dealer and Player push.');
-}else if($houseTotal > $playerTotal &&$houseTotal < 22){
+}else if($houseTotal > $playerTotal && $houseTotal < 22){
   $('.hole').hide();
-$hCard1.show();
+  $hCard1.show();
   alert('Dealer Wins!!!');
 }else if($playerTotal > $houseTotal && $playerTotal < 22){
   $('.hole').hide();
   $hCard1.show();
-  alert('Player Wins!!');
+  alert('Player Wins!!!');
 }else alert('Something went wrong');  
 }
 
@@ -173,7 +173,7 @@ $standBtn.on('click', () => {
     $($hitBtn).attr('disabled','disable');
     $('.hole').hide();
     $hCard1.show();
-    $('#housescore').show();
+    $('#houseScore').show();
     if($houseTotal <= 16){
       fetch('https://deckofcardsapi.com/api/deck/'+$deckID+'/draw/?count=1').then(function(response) {
             if (response.status != 200) {
@@ -201,7 +201,7 @@ $standBtn.on('click', () => {
 
             $houseTotal += $lastVal;
             $('#house').append($hCard3);
-            $('#housescore').text( "Score: " + $houseTotal);
+            $('#houseScore').text( "Score: " + $houseTotal);
             })
           });
       }

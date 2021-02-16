@@ -38,7 +38,7 @@ body {
     align-items: center;
 }
 
-#playerhand, #house {
+#playerHand, #house {
     background-color: rgba(0, 0, 0, 0.2);
     width: 90%;
     height: 50%;
@@ -61,7 +61,7 @@ body {
     border-radius: 5px;
 }
 
-#deckcard {
+#deckCard {
     position: relative;
     left: 0.5%;
 }
