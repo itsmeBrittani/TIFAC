@@ -6,6 +6,15 @@ The goal of the game is to get a score higher than the dealer's but less than 21
 
 Play it here: https://itsmebrittani.github.io/BlackJack/
 
+## Technologies Used
+Languages - HTML5, CSS3, Javascript, jQuery
+Project Planning - Trello
+VS Code
+Deck of Cards API: https://deckofcardsapi.com/
+
+## Features
+Score Tracking
+
 ## Game Walkthrough
 
 ### Landing page
@@ -33,6 +42,6 @@ Play it here: https://itsmebrittani.github.io/BlackJack/
 
 ## Version 2.0
 
-- Tackle Aces problem
+- Tackle Aces problem (11 count vs 1)
 - Add betting function
 - Add double down and split options
