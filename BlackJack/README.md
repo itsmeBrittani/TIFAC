@@ -7,13 +7,13 @@ The goal of the game is to get a score higher than the dealer's but less than 21
 Play it here: https://itsmebrittani.github.io/BlackJack/
 
 ## Technologies Used
-Languages - HTML5, CSS3, Javascript, jQuery
-Project Planning - Trello
-VS Code
-Deck of Cards API: https://deckofcardsapi.com/
+* Languages - HTML5, CSS3, Javascript, jQuery
+* Project Planning - Trello
+* VS Code
+* Deck of Cards API: https://deckofcardsapi.com/
 
 ## Features
-Score Tracking
+* Score Tracking
 
 ## Game Walkthrough
 
