@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIFAC</title>
+</head>
+<body>
+    <h1>Welcome to TIFAC</h1>
+    <h2>Help us keep the community informed and safe!</h2>
+    <nav>
+        <a href="/new">File a New Report</a>
+    </nav>
+    <span class="container">
+        <% for (let i = 0; i < allReports.length; i++) { %>
+            <div class='<%= allReports[i].establishment %>'>
+                <a href="/TIFAC/<%= i %>">
+                    <h3><%= allReports[i].establishment %></h3>
+                </a>
+            <h4><%= allReports[i].location %></h4>
+            <h5><%= allReports[i].date %></h5>
+            <p><%= allReports[i].description %></p>
+            <p><strong> <%= allReports[i].type %></strong></p>
+            </div>
+        <% } %>
+    </span>
+</body>
+</html>
