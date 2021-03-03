@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Incident = require('../models/TIFAC.js');
+const Incident = require('../models/Incidents.js');
 
 //Routes
 //seed
@@ -50,18 +50,37 @@ router.get('/', (req, res) => {
 //new
 router.get('/new', (req, res) => {
     res.render('new.ejs')
-})
+});
 
 //create
-
+router.post('/', (req, res)=>{
+    Incident.create(req.body, (error, createdReport)=>{
+    res.redirect('/TIFAC');
+    });
+});
 
 //edit
-
+router.get('/:id/edit', (req, res)=>{
+    Incident.findById(req.params.id, (err, foundReport)=> {
+        res.render('edit.ejs', { 
+        report: foundReport,
+            method: 'PUT'
+    });
+});
+});
 
 
 //update
-
-
+router.put('/:id', (req, res) => {
+    if (req.body.type === 'on') {
+        req.body.type = true;
+    } else {
+        req.body.type = false;
+    }
+    Incident.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedReport) => {
+        res.redirect('/TIFAC');
+    });
+});
 
 //show
 router.get('/:id', (req, res) => {
@@ -73,7 +92,11 @@ router.get('/:id', (req, res) => {
 })
 
 //destroy
-
+router.delete('/:id', (req, res) => {
+    Incident.findByIdAndRemove(req.params.id, (error, deletedReport) => {
+        res.redirect('/TIFAC');
+    });
+});
 
 module.exports = router;
 
