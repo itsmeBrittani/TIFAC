@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Report</title>
+</head>
+<body>
+    <div class="show">
+    <h1><%= report.establishment %></h1>
+<h2><%= report.location %></h2>
+<h3><%= report.date %></h3>
+<p><%= report.description %></p>
+<h6><strong> <%= report.type %></strong></h6>
+</div>
+<button class="indexNew">
+    <a href="/TIFAC/"> 
+    Back to Timeline
+    </a>
+</button>
+</body>
+</html>

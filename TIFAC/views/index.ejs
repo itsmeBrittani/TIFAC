@@ -15,7 +15,7 @@
     <span class="container">
         <% for (let i = 0; i < allReports.length; i++) { %>
             <div class='<%= allReports[i].establishment %>'>
-                <a href="/TIFAC/<%= i %>">
+                <a href="/TIFAC/<%= allReports[i].id %>">
                     <h3><%= allReports[i].establishment %></h3>
                 </a>
             <h4><%= allReports[i].location %></h4>

@@ -55,15 +55,6 @@ router.get('/new', (req, res) => {
 //create
 
 
-//show
-router.get('/:id', (req, res) => {
-    Incident.findById(req.params.id, (err, foundReport) => {
-        res.render('show.ejs', {
-            report: foundReport
-        });
-    });
-});
-
 //edit
 
 
@@ -71,8 +62,20 @@ router.get('/:id', (req, res) => {
 //update
 
 
+
+//show
+router.get('/:id', (req, res) => {
+    console.log(req.params.id);
+    Incident.findById(req.params.id, (err, foundReport) => {res.render('show.ejs', {
+        report: foundReport
+    });
+});
+})
+
 //destroy
 
 
 module.exports = router;
+
+
 
