@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>File a Report</title>
+</head>
+<body>
+    <h1>Report an Incident</h1>
+    <span class="container" id="new">
+        <form action="/TIFAC" method="POST">
+            <fieldset>
+            <label for="establishment">Establishment:</label>
+            <input type="text" name="establishment" id="establishment" />
+
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location">
+
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date"/>
+
+            <label for="description">Description:</label>
+            <textarea name="description" id="description"></textarea>
+
+            <label for="type">Type:</label>
+            <input type="checkbox" id="option1" name="type" value="Ableism">
+                <label for="option1">Ableism</label>
+                <input type="checkbox" id="option2" name="type" value="Adultism">
+                <label for="option2">Adultism</label>
+                <input type="checkbox" id="option3" name="type" value="Ageism">
+                <label for="option3">Ageism</label>
+                <input type="checkbox" id="option4" name="type" value="Antisemitism">
+                <label for="option4">Antisemitism</label>
+                <input type="checkbox" id="option5" name="type" value="Anti-Asian">
+                <label for="option5">Anti-Asian</label>
+                <input type="checkbox" id="option6" name="type" value="Anti-Black">
+                <label for="option6">Anti-Black</label>
+                <input type="checkbox" id="option7" name="type" value="Anti-Indigenous">
+                <label for="option7">Anti-Indigenous</label>
+                <input type="checkbox" id="option8" name="type" value="Antisemitism">
+                <label for="option8">Antisemitism</label>
+                <input type="checkbox" id="option9" name="type" value="Classism">
+                <label for="option9">Classism</label>
+                <input type="checkbox" id="option10" name="type" value="Colorism">
+                <label for="option10">Colorism</label>
+                <input type="checkbox" id="option11" name="type" value="Fatphobia">
+                <label for="option11">Fatphobia</label>
+                <input type="checkbox" id="option12" name="type" value="Homophobia">
+                <label for="option12">Homophobia</label>
+                <input type="checkbox" id="option13" name="type" value="Islamophobia">
+                <label for="option13">Islamophobia</label>
+                <input type="checkbox" id="option14" name="type" value="Misogynoir">
+                <label for="option14">Misogynoir</label>
+                <input type="checkbox" id="option15" name="type" value="Racism">
+                <label for="option15">Racism</label>
+                <input type="checkbox" id="option16" name="type" value="Sexism">
+                <label for="option16">Sexism</label>
+                <input type="checkbox" id="option17" name="type" value="Transmisogyny">
+                <label for="option17">Transmisogyny</label>
+                <input type="checkbox" id="option18" name="type" value="Transphobia">
+                <label for="option18">Transphobia</label>
+                <input type="checkbox" id="option19" name="type" value="Xenophobia">
+                <label for="option19">Xenophobia</label>
+                <input type="checkbox" id="option20" name="type" value="Other">
+                <label for="option20">Other</label>
+            
+
+            <input class="submit" type="submit" value="Submit Report">
+        </fieldset>
+        </form>
+    </span>
+    <button class="indexNew">
+        <a href="/TIFAC/"> 
+        Back to Timeline
+        </a>
+    </button>
+</body>
+</html>

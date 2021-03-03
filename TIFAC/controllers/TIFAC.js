@@ -49,7 +49,7 @@ router.get('/', (req, res) => {
 
 //new
 router.get('/new', (req, res) => {
-    res.send('These are the new things')
+    res.render('new.ejs')
 })
 
 //create
@@ -76,5 +76,3 @@ router.get('/:id', (req, res) => {
 
 module.exports = router;
 
-
-//haha whyyyyyy does github hate me
