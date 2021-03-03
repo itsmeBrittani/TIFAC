@@ -64,23 +64,14 @@ router.get('/:id/edit', (req, res)=>{
     Incident.findById(req.params.id, (err, foundReport)=> {
         res.render('edit.ejs', { 
         report: foundReport,
-            method: 'PUT'
+        method: 'PUT'
     });
 });
 });
 
 
 //update
-router.put('/:id', (req, res) => {
-    if (req.body.type === 'on') {
-        req.body.type = true;
-    } else {
-        req.body.type = false;
-    }
-    Incident.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedReport) => {
-        res.redirect('/TIFAC');
-    });
-});
+
 
 //show
 router.get('/:id', (req, res) => {

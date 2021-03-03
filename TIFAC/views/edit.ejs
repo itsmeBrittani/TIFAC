@@ -20,118 +20,76 @@
             <input type="date" name="date" id="date" value="<%= report.date %>"/>
 
             <label for="description">Description:</label>
-            <textarea name="description" id="description" value="<%= report.description %>"></textarea>
+            <textarea name="description" id="description"><%= report.description %></textarea>
 
             <label for="type">Type:</label>
             <input type="checkbox" id="option1" name="type" value="Ableism" 
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option1">Ableism</label>
                 <input type="checkbox" id="option2" name="type" value="Adultism" 
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option2">Adultism</label>
                 <input type="checkbox" id="option3" name="type" value="Ageism"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option3">Ageism</label>
                 <input type="checkbox" id="option4" name="type" value="Antisemitism"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option4">Antisemitism</label>
                 <input type="checkbox" id="option5" name="type" value="Anti-Asian"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option5">Anti-Asian</label>
                 <input type="checkbox" id="option6" name="type" value="Anti-Black"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option6">Anti-Black</label>
                 <input type="checkbox" id="option7" name="type" value="Anti-Indigenous"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option7">Anti-Indigenous</label>
                 <input type="checkbox" id="option8" name="type" value="Antisemitism"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option8">Antisemitism</label>
                 <input type="checkbox" id="option9" name="type" value="Classism"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option9">Classism</label>
                 <input type="checkbox" id="option10" name="type" value="Colorism"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option10">Colorism</label>
                 <input type="checkbox" id="option11" name="type" value="Domestic Terrorism"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option11">Domestic Terrorism</label>
                 <input type="checkbox" id="option12" name="type" value="Fatphobia"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option12">Fatphobia</label>
                 <input type="checkbox" id="option13" name="type" value="Homophobia"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option13">Homophobia</label>
                 <input type="checkbox" id="option14" name="type" value="Islamophobia"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option14">Islamophobia</label>
                 <input type="checkbox" id="option15" name="type" value="Misogynoir"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option15">Misogynoir</label>
                 <input type="checkbox" id="option16" name="type" value="Racism"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option16">Racism</label>
                 <input type="checkbox" id="option17" name="type" value="Sexism"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option17">Sexism</label>
                 <input type="checkbox" id="option18" name="type" value="Transmisogyny"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option18">Transmisogyny</label>
                 <input type="checkbox" id="option19" name="type" value="Transphobia"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option19">Transphobia</label>
                 <input type="checkbox" id="option20" name="type" value="Xenophobia"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option20">Xenophobia</label>
                 <input type="checkbox" id="option21" name="type" value="Other"
-                <% if(report.type === true) { %>
-                    checked
-                <% } %>>
+            >
                 <label for="option21">Other</label>
             
         </fieldset>
 
-        <input type="submit" name="" value="Edit Report"/>
+        <input type="submit" name="" value="Save Changes"/>
     </form>
 </body>
 </html>
