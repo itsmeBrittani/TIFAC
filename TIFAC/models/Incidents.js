@@ -6,7 +6,7 @@ const incidentSchema = new mongoose.Schema({
     location:  { type: String },
     date: { type: Date },
     description: { type: String, required: true },
-    type: { type: Array, required: true }
+    type: { type: Array, required: true } //change this
 });
 
 const Incident = mongoose.model('Incident', incidentSchema);

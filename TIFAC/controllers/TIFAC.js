@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Incident = require('../models/Incidents.js');
+const moment = require('moment');
+exports.index = function(req, res) {
+    res.render('index', { moment: moment });
+};
 
 //Routes
 //seed
@@ -71,7 +75,11 @@ router.get('/:id/edit', (req, res)=>{
 
 
 //update
-
+router.put('/:id', (req, res) => {
+    Incident.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedReport) => {
+        res.redirect('/TIFAC');
+    });
+});
 
 //show
 router.get('/:id', (req, res) => {
