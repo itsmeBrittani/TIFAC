@@ -6,20 +6,27 @@
 </head>
 <body>
     <h1>Edit Report</h1>
-    <form action="/TIFAC/<%= report.id %>?_method=PUT" method="POST">
+    <span class="edit-container">
+        <form class="editForm" action="/TIFAC/<%= report.id %>?_method=PUT" method="POST">
         <fieldset>
-            <label for="establishment">Establishment:</label>
-            <input type="text" name="establishment" id="establishment" value="<%= report.establishment %>"/>
-
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location" value="<%= report.location %>">
-
-            <label for="date">Date:</label>
-            <input type="date" name="date" id="date" value="<%= report.date %>"/>
-
-            <label for="description">Description:</label>
-            <textarea name="description" id="description"><%= report.description %></textarea>
-
+            <span>
+                <label for="establishment">Establishment:</label>
+                <input type="text" name="establishment" id="establishment" value="<%= report.establishment %>"/>
+            </span>
+            <span>
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" value="<%= report.location %>">
+            </span>
+            <span>
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date" value="<%= report.date %>"/>
+            </span>
+            <span>
+                <label for="description">Description:</label>    
+                <textarea name="description" id="description"><%= report.description %></textarea>
+            </span>
+        </fieldset>
+        <fieldset>
             <label for="type">Type:</label>
             <input type="checkbox" id="option1" name="type" value="Ableism" 
             >
@@ -84,10 +91,15 @@
                 <input type="checkbox" id="option21" name="type" value="Other"
             >
                 <label for="option21">Other</label>
-            
         </fieldset>
-
-        <input type="submit" name="" value="Save Changes"/>
+        <p style="margin: 0 auto">Please re-enter the date of the incident</p>
+        <input style="margin-top:10px; color: #006d77; margin-bottom: 10px;" type="submit" name="" value="Save Changes"/>
     </form>
+</span>
+<button style="margin-top: 10px">
+    <a href="/TIFAC/"> 
+    Back to Timeline
+    </a>
+</button>
 </body>
 </html>
