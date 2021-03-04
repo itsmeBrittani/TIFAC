@@ -27,7 +27,9 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
-
+app.get('/', (req, res) => {
+    res.redirect('/TIFAC')
+})
 
 //LISTENER
 app.listen(port, () => {
