@@ -29,9 +29,9 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 app.get('/', (req, res) => {
     res.redirect('/TIFAC')
-})
+});
 
 //LISTENER
 app.listen(port, () => {
     console.log("Ready for your orders, Goddess!!");
-})
+});
