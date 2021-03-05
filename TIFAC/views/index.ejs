@@ -20,7 +20,7 @@
             <h4><%= allReports[i].location %></h4>
             <h5><%= allReports[i].date %></h5>
             <h6><strong> <%= allReports[i].type %></strong></h6>
-           <button><a href="/TIFAC/<%= allReports[i].id %>/edit">Edit Report</a></button>
+            <button><a href="/TIFAC/<%= allReports[i].id %>/edit">Edit Report</a></button>
             <form style="color: red" action="/TIFAC/<%= allReports[i].id %>?_method=DELETE" method="POST">
                 <input style="color: red; margin: 7px 0px 10px 0px; width: 150px" type="submit" value="Delete Report"/>
             </form>
